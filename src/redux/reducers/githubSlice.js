@@ -21,7 +21,21 @@ const initialState = {
 const githubSlice = createSlice({
 	name: 'github',
 	initialState,
-	
+	extraReducers: {
+		[fetchAsyncGithub.pending]: (state) => {
+			state.isLoading = true;
+			console.log("Pending");
+		},
+		[fetchAsyncGithub.fulfilled]: (state, { payload }) => {
+			state.isLoading = false;
+			console.log("fetched successfully");
+			state.github = payload
+		},
+		[fetchAsyncGithub.rejected]: (state) => {
+			state.isLoading = false;
+			console.log("Rejected");
+		},
+	},
 });
 
 // console.log(githubSlice);
