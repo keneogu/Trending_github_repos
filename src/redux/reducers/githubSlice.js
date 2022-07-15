@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import { githubAPI } from '../../Api/api';
+import {API_ENDPOINT, API_BASE, PARAM_SEARCH, API_SORT, PARAM_ORDER, PARAM_PAGE} from '../../Api/api';
 import axios from 'axios';
-// import { getGithhub } from '../redux/reducers/githubSlice';
 
 
-export const fetchAsyncGithub = createAsyncThunk("github/fetchAsyncGithub", async () => {
+export const fetchAsyncGithub = createAsyncThunk("github/fetchAsyncGithub", async (searchTerm) => {
 	try {
-		const response = await axios.get('https://api.github.com/search/repositories?q=created:>2021-08-13&sort=stars&order=desc');
+		const response = await axios.get(`${API_BASE}?${PARAM_SEARCH}${searchTerm}&${API_SORT}&${PARAM_ORDER}`);
+		console.log(response.data);
 		return response.data;
 	}catch(error) {
 		return error;
@@ -27,8 +27,8 @@ const githubSlice = createSlice({
 			console.log("Pending");
 		},
 		[fetchAsyncGithub.fulfilled]: (state, { payload }) => {
-			state.isLoading = false;
 			console.log("fetched successfully");
+			state.isLoading = false;
 			state.github = payload
 		},
 		[fetchAsyncGithub.rejected]: (state) => {
@@ -38,8 +38,5 @@ const githubSlice = createSlice({
 	},
 });
 
-// console.log(githubSlice);
-// export const {getGithhub} = githubSlice.actions;
-export const getAllGithub = (state) => state.github.github;
-console.log(getAllGithub);
+export const getAllGithub = (state) => state.github;
 export default githubSlice.reducer;
