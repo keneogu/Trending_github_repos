@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+// import { fetchAsyncGithub } from '../redux/reducers/githubSlice';
 import {LeftIcon, RightIcon} from '../icons';
 
 const Navbar = () => {
+	const [searchTerm, setSearchTerm] = useState("")
+	const dispatch = useDispatch();
+
+	const handleChange = (e) => {
+		e.preventDefault();
+		setSearchTerm(e.target.value);
+	}
 
 
 	return (
