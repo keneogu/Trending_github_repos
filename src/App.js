@@ -1,9 +1,13 @@
 import './App.css';
+import GithubPage from './containers/GithubPage';
 
+ 
 function App() {
+  
+  
   return (
     <div className="App">
-      <h1>Started react project</h1>
+      <GithubPage />
     </div>
   );
 }
