@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-// import { fetchAsyncGithub } from '../redux/reducers/githubSlice';
+import { fetchAsyncGithub } from '../redux/reducers/githubSlice';
 import {LeftIcon, RightIcon} from '../icons';
 
 const Navbar = () => {
@@ -12,6 +12,11 @@ const Navbar = () => {
 		setSearchTerm(e.target.value);
 	}
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		dispatch(fetchAsyncGithub(searchTerm));
+		setSearchTerm("");
+	}
 
 	return (
 		<div>
