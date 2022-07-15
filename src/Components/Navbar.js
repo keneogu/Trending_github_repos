@@ -12,7 +12,10 @@ const Navbar = () => {
 					<RightIcon />
 				</div>
 				<div className="form-contain">
-					
+					<form onSubmit={handleSubmit}>
+						<input type="text" value={searchTerm} placeholder="e.g: 2021-13-08" onChange={handleChange} />
+						<button type="submit">Submit</button>
+					</form>
 				</div>
 			</header>
 		</div>
