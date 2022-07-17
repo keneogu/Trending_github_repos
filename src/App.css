@@ -1,5 +1,90 @@
 * {
   padding: 0;
   margin: 0;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
   box-sizing: border-box;
+}
+
+.gitpage-contain {
+  max-width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.p-contain {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.repo-contain {
+  width: auto;
+  background: #eeeeee;
+}
+
+.ul-contain {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+  margin: 15px 10px;
+  padding: 1px 15px;
+}
+
+.repo-contain-1 {
+  text-align: start;
+  padding: 1px 15px;
+}
+
+.img-contain {
+  margin-right: 20px;
+}
+.img {
+  width: 200px;
+}
+
+.ul-list-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.ul-list-contain a {
+  font-weight: 900;
+  font-size: 42px;
+  letter-spacing: 3px;
+  color: #000000;
+}
+
+.ul-list-contain li p {
+  font-size: 18px;
+}
+
+.last-ul {
+  display: flex;
+}
+
+.last-ul-li {
+  border: 2px solid #000000;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+.last-ul-li-1 {
+  padding: 5px 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 0 15px;
+}
+
+.heroicon {
+}
+.cart-icon {
+  padding-right: 10px;
+  width: 30px;
 }
