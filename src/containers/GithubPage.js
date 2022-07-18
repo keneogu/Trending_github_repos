@@ -8,9 +8,11 @@ import Navbar from '../Components/Navbar';
 const GithubPage = () => {
 	const dispatch = useDispatch();
 	const searchDate = "2021-08-13";
+	const pageCount = 0;
+
 
   useEffect(() => {
-		dispatch(fetchAsyncGithub(searchDate));
+		dispatch(fetchAsyncGithub(searchDate,pageCount));
 	}, [dispatch]);
 
 	return (
