@@ -3,9 +3,9 @@ import {API_ENDPOINT, API_BASE, PARAM_SEARCH, API_SORT, PARAM_ORDER, PARAM_PAGE}
 import axios from 'axios';
 
 
-export const fetchAsyncGithub = createAsyncThunk("github/fetchAsyncGithub", async (searchTerm) => {
+export const fetchAsyncGithub = createAsyncThunk("github/fetchAsyncGithub", async (searchTerm,pageCount) => {
 	try {
-		const response = await axios.get(`${API_BASE}?${PARAM_SEARCH}${searchTerm}&${API_SORT}&${PARAM_ORDER}`);
+		const response = await axios.get(`${API_BASE}?${PARAM_SEARCH}${searchTerm}&${API_SORT}&${PARAM_ORDER}&${PARAM_PAGE}${pageCount}`);
 		console.log(response.data);
 		return response.data;
 	}catch(error) {
@@ -29,7 +29,7 @@ const githubSlice = createSlice({
 		[fetchAsyncGithub.fulfilled]: (state, { payload }) => {
 			console.log("fetched successfully");
 			state.isLoading = false;
-			state.github = payload
+			state.github = payload;
 		},
 		[fetchAsyncGithub.rejected]: (state) => {
 			state.isLoading = false;
