@@ -5,15 +5,8 @@ import {LeftIcon, RightIcon} from '../icons';
 
 const Navbar = () => {
 	const [searchTerm, setSearchTerm] = useState("2021-08-13");
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(1);
 	const dispatch = useDispatch();
-
-
-	// const inc = () => {
-	// 	setCount(count + 1);
-	// }
-
-	// const dec = () => count > 0 ? setCount(count +1) : setCount(count);
 
 	const handleChange = (e) => {
 		e.preventDefault();
@@ -35,10 +28,9 @@ const Navbar = () => {
 
 	const handleDec = (e) => {
 		e.preventDefault();
-	  let dec = 	count > 0 ? setCount(count - 1) : setCount(0);
+	  let dec = 	count > 1 ? setCount(count - 1) : setCount(1);
 		dispatch(fetchAsyncGithub(searchTerm,dec));
 	}
-	console.log(count);
 
 	return (
 		<div>
