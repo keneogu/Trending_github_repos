@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {API_ENDPOINT, API_BASE, PARAM_SEARCH, API_SORT, PARAM_ORDER, PARAM_PAGE} from '../../Api/api';
+import { API_BASE, PARAM_SEARCH, API_SORT, PARAM_ORDER, PARAM_PAGE} from '../../Api/api';
 import axios from 'axios';
 
 
 export const fetchAsyncGithub = createAsyncThunk("github/fetchAsyncGithub", async (searchTerm,pageCount) => {
 	try {
-		const response = await axios.get(`${API_BASE}?${PARAM_SEARCH}${searchTerm}&${API_SORT}&${PARAM_ORDER}&${PARAM_PAGE}${pageCount}`);
+		const response = await axios.get(`${API_BASE}?${PARAM_SEARCH}${searchTerm}&${API_SORT}&${PARAM_ORDER}&${PARAM_PAGE}${pageCount}&per_page=50`);
 		console.log(response.data);
 		return response.data;
 	}catch(error) {
