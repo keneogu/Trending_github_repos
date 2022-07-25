@@ -21,12 +21,19 @@ const initialState = {
 const githubSlice = createSlice({
 	name: 'github',
 	initialState,
+	reducers: {
+		removeItem: (state, { payload }) => {
+			const itemId = payload;
+			state.github.items = state.github.items.filter((item) => item.id !== itemId);
+		}
+	},
 	extraReducers: {
 		[fetchAsyncGithub.pending]: (state) => {
 			state.isLoading = true;
 			console.log("Pending");
 		},
 		[fetchAsyncGithub.fulfilled]: (state, { payload }) => {
+			console.log(payload);
 			console.log("fetched successfully");
 			state.isLoading = false;
 			state.github = payload;
@@ -39,4 +46,5 @@ const githubSlice = createSlice({
 });
 
 export const getAllGithub = (state) => state.github;
+export const {removeItem} = githubSlice.actions;
 export default githubSlice.reducer;
