@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { removeItem } from '../redux/reducers/githubSlice';
+import { useDispatch } from 'react-redux';
 
-const GithubCard = ({name,owner,description,html_url,open_issues_count,stargazers_count}) => {
+const GithubCard = ({id,name,owner,description,html_url,open_issues_count,stargazers_count}) => {
+	const dispatch = useDispatch();
 
+	const deleteItem = () => {
+		dispatch(removeItem(id));
+	}
+	
 	return (
 		<ul className="ul-contain">
 			<li className="img-contain">
@@ -16,6 +23,7 @@ const GithubCard = ({name,owner,description,html_url,open_issues_count,stargazer
 					<li className="last-ul-li-1">Submitted by: {owner.login}</li>
 				</ul>
 			</ul>
+			<button className="remove-btn" onClick={deleteItem}>Remove</button>
 		</ul>
 	)
 }
