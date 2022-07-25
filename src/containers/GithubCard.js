@@ -8,12 +8,13 @@ const GithubCard = ({id,name,owner,description,html_url,open_issues_count,starga
 	const deleteItem = () => {
 		dispatch(removeItem(id));
 	}
-	
+
 	return (
 		<ul className="ul-contain">
 			<li className="img-contain">
 				<img src={owner.avatar_url} alt="" className="img" />
 			</li>
+			<div className="split-card">
 			<ul className="ul-list-contain">
 				<li><a href={html_url}>{name}</a></li>
 				<li><p>{description}</p></li>
@@ -24,6 +25,7 @@ const GithubCard = ({id,name,owner,description,html_url,open_issues_count,starga
 				</ul>
 			</ul>
 			<button className="remove-btn" onClick={deleteItem}>Remove</button>
+			</div>
 		</ul>
 	)
 }

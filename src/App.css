@@ -42,6 +42,7 @@
 .img-contain {
   margin-right: 20px;
 }
+
 .img {
   width: 200px;
 }
@@ -51,6 +52,7 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .ul-list-contain a {
   font-weight: 900;
   font-size: 42px;
@@ -59,6 +61,7 @@
 }
 
 .ul-list-contain li p {
+  margin-right: 10%;
   font-size: 18px;
 }
 
@@ -85,4 +88,25 @@
 .cart-icon {
   padding-right: 10px;
   width: 30px;
+}
+
+.split-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.remove-btn {
+  position: absolute;
+  right: 0;
+  display: block;
+  align-self: center;
+  justify-self: flex-end;
+  padding: 10px;
+  background-color: tomato;
+  color: aliceblue;
+  border: 0;
+  border-radius: 25px;
 }
