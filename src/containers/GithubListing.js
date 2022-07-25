@@ -9,8 +9,8 @@ const GithubListing = () => {
 
 	let content;
 	content = github.incomplete_results === true ? (
-		github.items.map((item,i) => (
-			<GithubCard key={i} {...item} />
+		github.items.map((item) => (
+			<GithubCard key={item.id} {...item} />
 		))
 	) : github.isLoading  ? (
 		<div>
