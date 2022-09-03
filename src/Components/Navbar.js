@@ -45,7 +45,7 @@ const Navbar = () => {
 				</div>
 				<div className="form-contain">
 					<form onSubmit={handleSubmit}>
-						<input type="text" value={searchTerm} placeholder="e.g: YYYY-MM-DD" onChange={handleChange} />
+						<input type="text" data-testid="searchTerm" value={searchTerm} placeholder="e.g: YYYY-MM-DD" onChange={handleChange} />
 						<button type="submit">Submit</button>
 					</form>
 				</div>
